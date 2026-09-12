@@ -1,0 +1,85 @@
+{
+  "title": "El permiso también convierte.",
+  "subtitle": "Shopify incorpora el consentimiento para mercadotecnia por WhatsApp en el momento de pago.",
+  "published": "11 de septiembre de 2026",
+  "consulted": "12 de septiembre de 2026",
+  "summary": [
+    "Shopify añadió una opción para que las tiendas recopilen, durante el proceso de pago, el consentimiento de sus clientes para recibir mensajes de mercadotecnia por WhatsApp. La novedad fue anunciada por Shopify el 10 de septiembre de 2026 y explicada al día siguiente por Marketing Pulse. [1][2]",
+    "Cuando la función está activada, el comprador puede marcar una casilla para suscribirse. La preferencia se guarda al completar el pago y después puede consultarse en la información del cliente. Shopify también permite decidir en qué regiones se muestra WhatsApp en lugar de SMS. [2]",
+    "El cambio integra en un mismo recorrido la compra, la obtención de permiso y un canal posterior de comunicación. Sin embargo, la casilla solo registra una preferencia: la tienda todavía debe definir qué mensajes enviará, con qué frecuencia y cómo atenderá una baja. [1]"
+  ],
+  "importance": [
+    "La noticia es importante porque convierte una parte técnica del checkout en una decisión de relación con el cliente. Solicitar el permiso cuando la persona ya está realizando una compra puede ayudar a formar una base de contactos propia y a mantener comunicación después de la venta.",
+    "Para mercadotecnia, esto abre un canal directo para informar sobre lanzamientos, reposiciones u ofertas relacionadas con una compra. El valor no está en acumular números telefónicos, sino en enviar mensajes relevantes y medir si producen visitas, compras repetidas o cancelaciones.",
+    "También existe una responsabilidad. Un consentimiento mal registrado, una integración que duplique contactos o una campaña demasiado frecuente puede generar molestias y afectar la confianza en la marca. La propia documentación de Shopify señala que las tiendas deben enviar promociones únicamente a quienes aceptaron recibirlas y revisar las obligaciones aplicables. [2]"
+  ],
+  "opportunity": "Crear una relación posventa más cercana con mensajes útiles, segmentados y medibles.",
+  "risk": "Confundir un dato disponible con permiso ilimitado y terminar enviando mensajes invasivos o difíciles de cancelar.",
+  "topics": [
+    {
+      "number": "01",
+      "title": "Mercadotecnia directa y digital",
+      "text": "WhatsApp se convierte en un canal directo entre la tienda y el cliente. La estrategia debe definir objetivo, contenido, frecuencia y llamada a la acción; activar una casilla no sustituye ese trabajo."
+    },
+    {
+      "number": "02",
+      "title": "CRM y segmentación",
+      "text": "El consentimiento puede formar parte del perfil del cliente. Combinado de manera responsable con su historial de compra, permite crear segmentos útiles, por ejemplo clientes interesados en una categoría o compradores que aceptaron recibir novedades."
+    },
+    {
+      "number": "03",
+      "title": "Recorrido y experiencia del cliente",
+      "text": "La opción aparece en el checkout, un punto sensible del recorrido. Debe ser clara, voluntaria y fácil de entender para no introducir fricción ni confundir mensajes de servicio con promociones."
+    },
+    {
+      "number": "04",
+      "title": "Medición, ética y privacidad",
+      "text": "La campaña puede evaluarse con entregas, clics, conversiones, compras repetidas y bajas. Al mismo tiempo, se debe conservar evidencia del consentimiento, proteger el teléfono y respetar la decisión de dejar de recibir mensajes."
+    }
+  ],
+  "example": {
+    "title": "Una tienda deportiva lanza una nueva colección.",
+    "steps": [
+      {
+        "title": "Captar",
+        "text": "Mostrar una casilla clara y voluntaria al pagar, sin ocultar el propósito del registro."
+      },
+      {
+        "title": "Segmentar",
+        "text": "Separar a quienes compraron calzado y aceptaron WhatsApp, sin incluir a los demás."
+      },
+      {
+        "title": "Evaluar",
+        "text": "Enviar una campaña de lanzamiento y comparar clics, compras repetidas y bajas."
+      }
+    ],
+    "decision": "La mercadotecnia define el público, el mensaje y el indicador de éxito. Sistemas implementa el registro del permiso, la integración con la plataforma de mensajería y la medición confiable del resultado."
+  },
+  "profession": [
+    "Como estudiante de Ingeniería en Sistemas Computacionales, relaciono esta noticia con el diseño de bases de datos, la integración de servicios y las pruebas de software. El consentimiento no debería guardarse como una casilla aislada: el sistema necesita registrar su estado, el canal, la fecha y el origen para que la empresa pueda demostrar qué aceptó cada persona.",
+    "También intervienen las APIs y los eventos del sistema. Una tienda puede necesitar sincronizar la preferencia entre Shopify, su CRM y la herramienta que envía los mensajes. Mi responsabilidad sería evitar duplicados, impedir que un contacto dado de baja vuelva a activarse por error y comprobar que los cambios se propaguen correctamente.",
+    "La seguridad es parte de la experiencia de marca. Los números telefónicos son datos personales y deben estar disponibles solo para los procesos y usuarios autorizados. Una falla técnica puede convertirse rápidamente en un problema de confianza y reputación.",
+    "Finalmente, un tablero debe relacionar los mensajes con resultados de negocio sin atribuir todas las ventas al último clic. Esto muestra que la ingeniería no solo mantiene la plataforma: también hace posible que mercadotecnia tome decisiones con datos consistentes y que el cliente conserve el control sobre su información."
+  ],
+  "conclusion": "Una campaña responsable comienza antes del mensaje: comienza con un permiso claro, un dato bien protegido y un sistema que respeta la decisión del cliente.",
+  "sources": [
+    {
+      "id": "1",
+      "type": "NOTICIA - INTERNET",
+      "author": "Stan Consulting",
+      "date": "11 de septiembre de 2026",
+      "title": "Shopify checkout adds a WhatsApp marketing opt-in",
+      "publisher": "Marketing Pulse",
+      "url": "https://stanconsultingllc.com/learn/pulse/shopify-checkout-whatsapp-marketing-consent"
+    },
+    {
+      "id": "2",
+      "type": "FUENTE PRIMARIA - CONTRASTE",
+      "author": "Shopify",
+      "date": "Actualización: 10 de septiembre de 2026",
+      "title": "Collect WhatsApp marketing consent at checkout / Collecting customer contact information",
+      "publisher": "Shopify Changelog y Shopify Help Center",
+      "url": "https://help.shopify.com/en/manual/promoting-marketing/create-marketing/customer-contact-information"
+    }
+  ]
+}

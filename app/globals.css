@@ -8,3 +8,32 @@
 @media print{@page{size:A4;margin:16mm}body{background:white;color:#17171a}.site-header,.article-nav,.reading-progress,.hero-cta,.pdf-strip,footer,.back-top{display:none!important}.hero{padding:0;background:white;color:#17171a}.hero-topline,.hero-bottom{color:#555}.hero-topline{font-size:9px}.hero-grid{display:block;min-height:0;padding:12px 0}.hero-copy>.eyebrow{color:#555}h1{font-size:35px;letter-spacing:-1px;margin:15px 0}h1>span{color:#573b74}.hero-copy>p{color:#555;max-width:none;font-size:11pt}.hero-visual{display:none}.hero-bottom{min-height:30px;border-color:#bbb}.article-shell{display:block;max-width:none;padding:15px 0}.article-section{padding-bottom:15px;margin-bottom:20px;break-inside:avoid}.article-section h2{font-size:25px;margin:12px 0}.article-section h2 br{display:none}.article-section p{font-size:10pt;line-height:1.6}.article-section .section-label{font-size:8pt}.topic-text[hidden]{display:block!important}.topic button{padding:12px 0;font-size:12pt}.topic button>svg:last-child{display:none}.topic-text p{padding-bottom:12px;font-size:10pt}.case-study{background:#eee;color:#111;padding:16px}.case-study .eyebrow,.case-study h4,.case-study p{color:#444}.case-study h3{font-size:18pt}.case-steps p,.case-study .case-decision{color:#444;font-size:9pt}.case-intro{color:#444!important}.balance h3{font-size:18pt}.balance p{font-size:9pt}.profession blockquote{font-size:18pt}.sources-section{display:block;padding:20px 0;background:white;break-inside:avoid}.sources-heading h2{font-size:22px}.sources-heading p{font-size:9pt}.sources-list h3{font-size:11pt}.sources-list p{font-size:8pt}.sources-list a{break-inside:avoid}.sources-list a:after{content:attr(href);font-size:7pt;overflow-wrap:anywhere;max-width:45%}.hero,.balance,.case-study{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
 
 @media screen and (max-width:760px){.article-section>p,.hero-copy>p{font-size:16px}}
+
+/* Navegación entre entradas */
+.site-header nav{gap:28px}.site-header nav a.current-edition{font-weight:700}.mobile-edition-nav{display:none}.edition-track i.complete{background:#8755ee}
+
+/* Noticia 02: consentimiento, datos y comercio digital */
+.edition-02{--lime:#54e39a;--ink:#08261c;--paper:#fbfdfc;--line:#d7e5df;--muted:#64736d}
+.edition-02 .reading-progress{background:#10a86a}.edition-02 .brand-symbol span{color:#10a86a}.edition-02 .nav-dot{background:#10a86a}
+.edition-02 .hero{background:#071d16}.edition-02 .hero-topline{color:#b8cbc3}.edition-02 .hero-bottom{border-color:#315044;color:#b7c9c1}
+.edition-02 .hero-bottom span:not(:first-child):not(:last-child):before{color:#557268}.edition-02 .hero-copy>p{color:#bfd0c9}
+.edition-02 .shopify-visual{background:radial-gradient(circle at 50% 35%,#164b39 0,#0b2b21 68%,#071d16 100%);border-color:#315c4c}
+.edition-02 .shopify-visual img{object-fit:contain;object-position:center 18%;padding:16px 24px 72px;opacity:1}
+.edition-02 .shopify-visual:after{background:linear-gradient(0deg,rgba(3,18,13,.98) 0,rgba(3,18,13,.72) 24%,transparent 55%)}
+.edition-02 .shopify-visual .image-index{bottom:41px}.edition-02 .shopify-visual .image-index>span{color:#8eeab9}.edition-02 .shopify-visual .image-index b{font-size:30px;line-height:1.05}.edition-02 .shopify-visual figcaption{color:#bbcec6}
+.edition-02 .section-label>span{background:#e2f5eb;color:#087b4b}.edition-02 .news-meta span:first-child{background:#e1f4ea;border-color:#e1f4ea;color:#087b4b}
+.edition-02 .citation,.edition-02 .text-link:hover{color:#087b4b}.edition-02 .key-note{background:#eaf8f1;border-color:#15a86a}.edition-02 .key-note>svg{color:#0d9760}.edition-02 .key-note p{color:#526c61}.edition-02 .key-note strong{color:#173c2e}
+.edition-02 .opportunity{background:#e9f8f0;border-color:#d2eadf}.edition-02 .opportunity .eyebrow{color:#277354}.edition-02 .responsibility{background:#f6f2e9;border-color:#e9dfca}.edition-02 .responsibility .eyebrow{color:#956923}
+.edition-02 .topic button>svg:first-child{color:#0b9660}.edition-02 .topic button:hover{color:#07824f}.edition-02 .case-study{background:#08291f}.edition-02 .case-study>.eyebrow{color:#54e39a}
+.edition-02 .profession blockquote{color:#164b39;border-color:#55c993}.edition-02 .profession blockquote>span{color:#36aa75}.edition-02 .closing-line>.lime-dot{background:#12a56a}
+.edition-02 .edition-card{background:#eff8f3}.edition-02 .edition-track i.complete{background:#12a56a}.edition-02 .sources-section{background:#eef7f2}.edition-02 .pdf-strip{background:#d9f3e5}.edition-02 .sources-list .eyebrow{color:#36715a}.edition-02 .pdf-button:hover{background:#174c39}
+.edition-02 a:focus-visible,.edition-02 button:focus-visible{outline-color:#12a56a}
+
+@media(max-width:760px){
+  .mobile-edition-nav{display:flex;background:var(--paper);border-bottom:1px solid var(--line);padding:0 6%}
+  .mobile-edition-nav a{flex:1;padding:13px 8px;text-align:center;font-size:12px;color:#74747c;border-bottom:2px solid transparent}
+  .mobile-edition-nav a[aria-current="page"]{font-weight:700;color:var(--ink);border-bottom-color:#8755ee}
+  .edition-02 .mobile-edition-nav a[aria-current="page"]{border-bottom-color:#12a56a}
+  .edition-02 .shopify-visual img{padding:12px 18px 65px}
+  .edition-02 .shopify-visual .image-index b{font-size:25px}
+}
