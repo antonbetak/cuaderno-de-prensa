@@ -18,6 +18,8 @@ import {
 } from 'lucide-react';
 import articleOne from './article.json';
 import articleTwo from './article-02.json';
+import ArticleThree from './article-03';
+import articleThree from './article-03.json';
 
 const sections = [
   { id: 'noticia', name: 'La noticia' },
@@ -79,11 +81,12 @@ const editions = {
   },
 };
 
-type EditionNumber = keyof typeof editions;
+type EditionNumber = keyof typeof editions | '03';
 
 function getEditionFromUrl(): EditionNumber {
   if (typeof window === 'undefined') return '01';
-  return new URLSearchParams(window.location.search).get('noticia') === '2' ? '02' : '01';
+  const number = new URLSearchParams(window.location.search).get('noticia');
+  return number === '3' ? '03' : number === '2' ? '02' : '01';
 }
 
 function CitedText({ text }: { text: string }) {
@@ -107,15 +110,16 @@ export default function Home() {
   const [active, setActive] = useState('noticia');
   const [progress, setProgress] = useState(0);
   const [open, setOpen] = useState<string[]>(['01']);
-  const edition = editions[editionNumber];
+  const edition = editions[editionNumber === '03' ? '01' : editionNumber];
   const article = edition.data;
+  const metadata = editionNumber === '03' ? articleThree : article;
 
   const editionLinks = useMemo(
     () =>
-      (Object.keys(editions) as EditionNumber[]).map((number) => ({
+      (['01', '02', '03'] as EditionNumber[]).map((number) => ({
         number,
         href: `?noticia=${Number(number)}`,
-        label: `Noticia ${number}`,
+        label: `${number} · ${number === '03' ? 'Revista' : 'Internet'}`,
       })),
     [],
   );
@@ -141,10 +145,10 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    document.title = `${article.title} | Cuaderno de prensa`;
+    document.title = `${metadata.title} | Cuaderno de prensa`;
     const meta = document.querySelector<HTMLMetaElement>('meta[name="description"]');
-    if (meta) meta.content = article.subtitle;
-  }, [article]);
+    if (meta) meta.content = metadata.subtitle;
+  }, [metadata]);
 
   const chooseEdition = (event: React.MouseEvent<HTMLAnchorElement>, next: EditionNumber) => {
     event.preventDefault();
@@ -158,6 +162,8 @@ export default function Home() {
     setOpen(['01']);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
+  if (editionNumber === '03') return <ArticleThree links={editionLinks} chooseEdition={chooseEdition} />;
 
   return (
     <div className={`edition edition-${editionNumber}`}>

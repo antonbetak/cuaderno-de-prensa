@@ -1,0 +1,73 @@
+{
+  "title": "La batalla por convertirse en tu agente personal",
+  "subtitle": "Dots y Muse compiten por un lugar en la vida cotidiana. El siguiente paso de la IA también pone a prueba el precio, la experiencia y la confianza.",
+  "summary": [
+    "WIRED presenta una competencia entre Dots de OpenAI y Muse de Meta. Reece Rogers prueba ambos y describe agentes que pueden actuar proactivamente, más allá de responder preguntas. [1]",
+    "La noticia sitúa a Dots como una propuesta premium respaldada por GPT-6 Astra, disponible al lanzamiento en el plan Pro desde 100 dólares mensuales. Muse ofrece una entrada gratuita. [1]"
+  ],
+  "strategies": [
+    {
+      "name": "OPENAI DOTS",
+      "price": "$100 USD / mes",
+      "detail": "Plan Pro al lanzamiento · GPT-6 Astra",
+      "analysis": "Interpreto esta entrada premium como una apuesta por personas dispuestas a pagar por asistencia avanzada. El precio selecciona al público y obliga a justificar el beneficio."
+    },
+    {
+      "name": "META MUSE",
+      "price": "Entrada gratuita",
+      "detail": "Sin pago de entrada, según WIRED",
+      "analysis": "La gratuidad reduce la barrera económica para probar el producto. Puede ampliar la adopción, aunque no demuestra por sí sola satisfacción ni permanencia."
+    }
+  ],
+  "importance": [
+    "Para mí, lo importante es el cambio en la relación con el software. Normalmente abro una aplicación y le indico qué hacer. Con un agente, la idea es establecer un objetivo y límites para que dé seguimiento. Esa posibilidad puede cambiar las expectativas: ya no bastaría una respuesta útil, también esperaríamos que la tarea avance.",
+    "Esto podría afectar la productividad y la forma en que distintas empresas prestan servicios. Pero delegar no elimina la responsabilidad. Hace falta saber quién autorizó cada acción, qué información se utilizó y cómo corregir un error. Tampoco conviene asumir que toda automatización ahorra tiempo: revisar resultados y resolver fallas también cuesta.",
+    "El artículo menciona la conexión de Gmail y Google Drive durante la configuración de Dots. [1] Ese paso hace visible una decisión central: cuánta información compartir a cambio de comodidad. En mi análisis, la privacidad, la seguridad y la dependencia de un proveedor influyen tanto en la adopción como las capacidades del modelo."
+  ],
+  "marketing": [
+    {
+      "title": "Dos precios, dos públicos",
+      "text": "La segmentación aparece desde el acceso. Un precio premium puede atraer a quienes tienen una necesidad frecuente y presupuesto; una entrada gratuita facilita la prueba para un público más amplio. Es una lectura de las estrategias descritas, no una medición de sus usuarios. El posicionamiento de Dots vincula capacidad tecnológica con valor; el de Muse reduce la barrera de entrada. Ninguna estrategia garantiza que el consumidor se quede."
+    },
+    {
+      "title": "La promesa es recuperar tiempo",
+      "text": "La propuesta de valor que identifico no se limita a “tener IA”: ofrece comodidad, organización y menos trabajo repetitivo. La diferenciación puede construirse con el modelo, las integraciones, el precio y la experiencia. Para mercadotecnia, habría que comunicar beneficios concretos y comprobar que el servicio los cumpla. Un modelo potente puede atraer atención, pero la utilidad cotidiana sostiene la relación."
+    },
+    {
+      "title": "Una identidad que invita a probar",
+      "text": "WIRED describe personajes amigables y una experiencia de mensajes con emojis. [1] Mi lectura es que ese branding puede hacer que un producto complejo se sienta cercano. Las interacciones familiares reducen el esfuerzo inicial de aprendizaje. Aun así, una personalidad agradable no prueba confiabilidad: la experiencia del cliente también depende de límites claros, avisos oportunos y control sobre las acciones."
+    },
+    {
+      "title": "La confianza forma parte del valor",
+      "text": "El marketing relacional busca mantener una relación, no solo conseguir una descarga. Cuanto más contexto conoce el agente, más personalizado podría ser el servicio; también aumenta la información a la que accede. Considero que explicar los permisos y permitir retirarlos ayuda a sostener esa relación. La comodidad pierde valor si el usuario siente que ya no controla sus datos o recibe intervenciones que no necesita."
+    }
+  ],
+  "profession": [
+    "Como estudiante de Ingeniería en Sistemas Computacionales, esta noticia me interesa porque detrás de un chat sencillo hay un problema de integración. Un modelo de lenguaje puede interpretar una petición, pero un producto necesita conectarse con APIs, consultar contexto y organizar información en bases de datos. También debe decidir qué hacer cuando un servicio externo no responde.",
+    "Yo relaciono esa arquitectura con autenticación y autorización: identificar al usuario no significa permitir cualquier acción. Diseñaría permisos específicos, protección de credenciales y registros que permitan revisar lo ocurrido. Antes de una operación sensible, necesitaría validar datos y pedir la confirmación que corresponda. No estoy describiendo la implementación interna de Dots o Muse, sino los requisitos que evaluaría como ingeniero.",
+    "También tendría que considerar infraestructura cloud, disponibilidad y manejo de errores. Si una petición se reintenta, el sistema debería evitar ejecutar dos veces la misma operación. La interfaz tendría que mostrar qué está pendiente, qué falló y cómo recuperar el control. Para mí, la confiabilidad incluye tanto la seguridad técnica como una explicación comprensible para la persona que usa el producto."
+  ],
+  "flow": [
+    "Modelo de IA",
+    "Contexto",
+    "Permisos",
+    "API / servicio externo",
+    "Validación",
+    "Acción",
+    "Confirmación"
+  ],
+  "reflection": "Me interesa que la competencia esté pasando de contestar mejor a ayudar de verdad. Como futuro ingeniero, me gustaría entender y construir lo que hace posible esa ayuda. También me deja una duda práctica: ¿qué tendría que demostrar un agente para que yo le diera acceso a mis archivos? Una interfaz bonita me animaría a probarlo; para delegarle tareas necesitaría ver que respeta mis decisiones.",
+  "sources": [
+    {
+      "id": "1",
+      "type": "REVISTA DIGITAL · NOTICIA",
+      "author": "Reece Rogers",
+      "date": "30 de septiembre de 2026",
+      "title": "The Battle to Be Your Personal AI Agent Is Here",
+      "publisher": "WIRED · Business",
+      "url": "https://www.wired.com/story/ai-agents-dots-devday-muse-battling-it-out/"
+    }
+  ],
+  "consulted": "4 de octubre de 2026",
+  "sourceNote": "Los datos de productos y precios se atribuyen a WIRED y corresponden a la publicación del 30 de septiembre. El análisis de mercadotecnia, la reflexión y el esquema técnico son propios; no describen una arquitectura oficial ni resultados medidos."
+}
