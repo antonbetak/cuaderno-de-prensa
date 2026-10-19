@@ -2,7 +2,7 @@
 import { ArrowDown, ArrowUp, ArrowUpRight, Download } from 'lucide-react';
 import article from './article-03.json';
 
-type EditionNumber = '01' | '02' | '03';
+import type { EditionNumber } from './page';
 const pdf = `${import.meta.env.BASE_URL}noticia-03-wired-agentes-ia.pdf`;
 function Text({ text }: { text: string }) {
   return <>{text.split(/(\[1\])/).map((part, i) => part === '[1]' ? <a key={i} className="agent-citation" href="#fuente-1" aria-label="Ver referencia WIRED">[1]</a> : part)}</>;

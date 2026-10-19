@@ -20,6 +20,8 @@ import articleOne from './article.json';
 import articleTwo from './article-02.json';
 import ArticleThree from './article-03';
 import articleThree from './article-03.json';
+import ArticleFour from './article-04';
+import articleFour from './article-04.json';
 
 const sections = [
   { id: 'noticia', name: 'La noticia' },
@@ -81,12 +83,12 @@ const editions = {
   },
 };
 
-type EditionNumber = keyof typeof editions | '03';
+export type EditionNumber = keyof typeof editions | '03' | '04';
 
 function getEditionFromUrl(): EditionNumber {
   if (typeof window === 'undefined') return '01';
   const number = new URLSearchParams(window.location.search).get('noticia');
-  return number === '3' ? '03' : number === '2' ? '02' : '01';
+  return number === '4' ? '04' : number === '3' ? '03' : number === '2' ? '02' : '01';
 }
 
 function CitedText({ text }: { text: string }) {
@@ -110,16 +112,16 @@ export default function Home() {
   const [active, setActive] = useState('noticia');
   const [progress, setProgress] = useState(0);
   const [open, setOpen] = useState<string[]>(['01']);
-  const edition = editions[editionNumber === '03' ? '01' : editionNumber];
+  const edition = editions[editionNumber === '03' || editionNumber === '04' ? '01' : editionNumber];
   const article = edition.data;
-  const metadata = editionNumber === '03' ? articleThree : article;
+  const metadata = editionNumber === '04' ? articleFour : editionNumber === '03' ? articleThree : article;
 
   const editionLinks = useMemo(
     () =>
-      (['01', '02', '03'] as EditionNumber[]).map((number) => ({
+      (['01', '02', '03', '04'] as EditionNumber[]).map((number) => ({
         number,
         href: `?noticia=${Number(number)}`,
-        label: `${number} · ${number === '03' ? 'Revista' : 'Internet'}`,
+        label: `${number} · ${number === '04' ? 'Revista 02/02' : number === '03' ? 'Revista 01/02' : 'Internet'}`,
       })),
     [],
   );
@@ -163,7 +165,9 @@ export default function Home() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  if (editionNumber === '03') return <ArticleThree links={editionLinks} chooseEdition={chooseEdition} />;
+  const notebookNav = <NotebookNav number={editionNumber} chooseEdition={chooseEdition} />;
+  if (editionNumber === '04') return <><ArticleFour links={editionLinks} chooseEdition={chooseEdition}/>{notebookNav}</>;
+  if (editionNumber === '03') return <><ArticleThree links={editionLinks} chooseEdition={chooseEdition}/>{notebookNav}</>;
 
   return (
     <div className={`edition edition-${editionNumber}`}>
@@ -255,9 +259,9 @@ export default function Home() {
                 <span className="edition-big">{edition.number}<span>/06</span></span>
                 <p>{edition.number === '01' ? 'Primera' : 'Segunda'} entrada<br />Cuaderno de prensa</p>
                 <div className="edition-track" aria-hidden="true">
-                  {[1, 2, 3, 4, 5, 6].map((item) => <i key={item} className={item <= Number(edition.number) ? 'complete' : ''} />)}
+                  {[1, 2, 3, 4, 5, 6].map((item) => <i key={item} className={item <= 4 ? 'complete' : ''} />)}
                 </div>
-                <span className="tiny">FUENTE DE INTERNET</span>
+                <span className="tiny">CUADERNO: 4 DE 6 NOTICIAS</span>
               </div>
             </div>
           </aside>
@@ -359,6 +363,7 @@ export default function Home() {
         </section>
       </main>
 
+      {notebookNav}
       <footer>
         <a href="#inicio" className="footer-brand">m.</a>
         <p>Ingeniería en Sistemas Computacionales<br /><span>Actividad individual / Noticia {edition.number} de 06</span></p>
@@ -366,4 +371,9 @@ export default function Home() {
       </footer>
     </div>
   );
+}
+
+function NotebookNav({number,chooseEdition}:{number:EditionNumber;chooseEdition:(e:React.MouseEvent<HTMLAnchorElement>,n:EditionNumber)=>void}) {
+ const numbers:EditionNumber[]=['01','02','03','04']; const i=numbers.indexOf(number);
+ return <nav className="notebook-nav" aria-label="Progreso y navegación del cuaderno"><div><strong>Cuaderno de prensa · 4 de 6 noticias</strong><progress value="4" max="6" aria-label="4 de 6 noticias completadas"/></div><div>{i>0&&<a href={`?noticia=${i}`} onClick={e=>chooseEdition(e,numbers[i-1])}>← Noticia {numbers[i-1]}</a>}{i<3&&<a href={`?noticia=${i+2}`} onClick={e=>chooseEdition(e,numbers[i+1])}>Noticia {numbers[i+1]} →</a>}</div></nav>;
 }
