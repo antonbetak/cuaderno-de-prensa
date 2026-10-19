@@ -93,3 +93,5 @@ Salida: `output/pdf/noticia-04-forbes-gemelos-digitales.pdf`; copia idéntica de
 - El lint global conserva los diagnósticos previos de componentes auxiliares y de `app/page.tsx`; comparación con la versión anterior sin nuevos diagnósticos. Las composiciones 03 y 04 pasan lint.
 
 Prueba repetible de navegador: con Playwright y Chromium disponibles, iniciar `npm run start -- --host 127.0.0.1 --port 4174` y ejecutar `node scripts/verify-notebook.cjs`. Admite `QA_URL` para comprobar producción, `PLAYWRIGHT_MODULE` para indicar una instalación existente y `CHROME_PATH` para usar Chrome instalado. Las capturas se guardan en `/tmp` o `QA_OUTPUT_DIR`.
+
+Revisión bibliográfica de Noticia 04: tres fuentes (Forbes, OpenStax y NIST), citas internas enlazadas y referencias completas en la página 4 del PDF. Se revisó la redacción de toda la entrada y se simplificaron las notas editoriales. La prueba de navegador verifica también las tres referencias y la navegación desde una cita.

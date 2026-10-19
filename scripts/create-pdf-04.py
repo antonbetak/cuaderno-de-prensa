@@ -84,22 +84,25 @@ p.styles['body'].fontSize=10;p.styles['body'].leading=14.4
 p.styles['sub'].fontSize=15;p.styles['sub'].leading=19
 base(4,'REFLEXIÓN / REFERENCIAS / 19 OCTUBRE 2026')
 t=section('05 / CONCLUSIÓN PERSONAL','Simular para preguntar mejor.')
-t=p.text(A['reflection'],t)+28
-p.text('PRINCIPALES APRENDIZAJES',t,'label');t+=23
+t=p.text(A['reflection'],t)+20
+p.text('PRINCIPALES APRENDIZAJES',t,'label');t+=19
+p.styles['sub'].fontSize=12;p.styles['sub'].leading=16
 for i,text in enumerate(A['learnings']):
-    t=p.text(f'0{i+1} / {text}',t,'sub')+14
+    t=p.text(f'0{i+1} / {text}',t,'sub')+10
 t+=8;p.line(t);t+=20
 p.text('REFERENCIAS BIBLIOGRÁFICAS',t,'label');t+=23
-s=A['sources'][0]
-t=p.text(f"[1] {s['author']}. (2026, 14 de octubre). {s['title']}. Forbes, CMO.",t)+10
-start=t;t=p.text(s['url'],t,'small')+9
-c.linkURL(s['url'],(M,H-t,M+CW,H-start),relative=0)
+for source in A['sources']:
+    start=t
+    t=p.text(f"[{source['id']}] {source['author']} ({source['date']}). {source['title']}. {source['publisher']}.",t,'small')+3
+    t=p.text(source['url'],t,'small')+10
+    c.linkURL(source['url'],(M,H-t,M+CW,H-start),relative=0)
 t=p.text('Consulta: '+A['consulted']+'. '+A['sourceNote'],t,'small')+23
 p.text('Autor: Anton Betak Licea / Ingeniería en Sistemas Computacionales',t,'small');t+=17
 p.text('Asignatura: Mercadotecnia Básica / Fecha: 19 de octubre de 2026',t,'small')
 c.save()
 r=PdfReader(OUT);assert len(r.pages)==4
-assert r.pages[3].get('/Annots'), 'Missing reference hyperlink'
+links=[x.get_object()['/A']['/URI'] for x in r.pages[3]['/Annots']]
+assert links==[source['url'] for source in A['sources']], 'Missing reference hyperlinks'
 text='\n'.join(page.extract_text() for page in r.pages)
 for term in ['primarios','Segmentación','hipotético','aprendizaje','consentimiento','REFLEXIÓN','Poinski']:
     assert term.lower() in text.lower(),term
