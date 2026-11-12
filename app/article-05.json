@@ -1,0 +1,33 @@
+{
+  "title": "Mexicanos aceptan recomendaciones de IA para comprar, pero mantienen el control sobre sus decisiones",
+  "subtitle": "La inteligencia artificial entra al recorrido de compra como guía; la decisión final todavía necesita confianza, contexto y una persona al mando.",
+  "summary": [
+    "La noticia de Judith Santiago, publicada en El Economista, resume hallazgos atribuidos a NielsenIQ (NIQ) sobre la relación entre consumidores mexicanos e inteligencia artificial. El dato principal indica que 68% se siente cómodo recibiendo recomendaciones de productos de una plataforma digital. [1]",
+    "El artículo distingue esa comodidad de delegar una compra completa: 38% declara que todavía no se siente cómodo dejando que una herramienta tome decisiones en su nombre. También reporta que más de 90% de los compradores mexicanos usa el smartphone como principal herramienta para comprar. [1]",
+    "Estos porcentajes no son partes complementarias de un mismo total: describen indicadores diferentes. Recibir una sugerencia permite comparar y decidir; una compra autónoma implicaría que el sistema elija y actúe con menor intervención humana."
+  ],
+  "importance": [
+    "La noticia importa porque muestra una adopción selectiva. Para las empresas, la IA puede ayudar a ordenar catálogos, comparar opciones y personalizar mensajes; pero la recomendación solo abre una posibilidad. La conversión también depende de información precisa, precio, disponibilidad, reseñas y una experiencia móvil clara. [1]",
+    "Para el consumidor, el beneficio es reducir el esfuerzo de búsqueda sin perder agencia. El riesgo aparece cuando una plataforma explica poco, usa datos sin transparencia o presenta una recomendación sesgada como si fuera una respuesta neutral. La confianza, la privacidad y la posibilidad de corregir o rechazar la sugerencia son condiciones comerciales, no detalles secundarios.",
+    "En el comercio electrónico mexicano, el smartphone vuelve especialmente importante el diseño de interfaces rápidas, comprensibles y seguras. Una estrategia responsable debe medir no solo clics y ventas, sino también satisfacción, consentimiento, errores y capacidad de la persona para revisar antes de pagar."
+  ],
+  "marketing": [
+    {"title":"Comportamiento y decisión de compra","text":"La IA interviene en reconocimiento de necesidades, búsqueda y evaluación de alternativas. Recomendar no equivale a decidir: el consumidor puede pedir una comparación y conservar la última palabra. Esta diferencia ayuda a analizar dónde cambia el recorrido tradicional y dónde permanece la autonomía."},
+    {"title":"Investigación de mercados y datos","text":"Los datos de navegación, consultas y compras pueden revelar patrones, pero deben interpretarse junto con objetivos, contexto y calidad de la muestra. El reporte de NIQ funciona como evidencia secundaria para formular preguntas sobre confianza, no como una explicación completa de por qué cada persona acepta o rechaza la automatización."},
+    {"title":"Segmentación y personalización","text":"Una tienda puede adaptar recomendaciones por intereses, historial o momento de compra. La personalización es útil cuando es pertinente y explicable; se vuelve problemática si encierra al cliente en una opción, discrimina o utiliza información que no esperaba compartir."},
+    {"title":"Mercadotecnia digital, e-commerce y confianza","text":"La recomendación debe conectar con una ficha de producto correcta, un checkout seguro y políticas claras. En canales móviles y conversaciones como WhatsApp, la confianza se construye con control visible: revisar, editar, cancelar y saber por qué aparece una sugerencia."}
+  ],
+  "profession": [
+    "Desde Ingeniería en Sistemas Computacionales, el reto consiste en convertir una estrategia de mercadotecnia en un sistema confiable. Esto incluye desarrollar la plataforma de comercio electrónico, diseñar bases de datos, construir algoritmos de recomendación, integrar interfaces con servicios y APIs, y monitorear el desempeño sin perder de vista a la persona usuaria.",
+    "También implica proteger información personal mediante control de accesos, minimización de datos, cifrado, registros de auditoría y pruebas de seguridad. Un modelo no debe tratar una correlación como una verdad ni automatizar una compra sin autorización explícita. La ingeniería aporta la infraestructura, pero la responsabilidad se comparte con marketing, legal y diseño."
+  ],
+  "example": "Una tienda en línea de productos para el hogar podría usar el historial de navegación y preferencias que el cliente autorizó para ordenar tres opciones de una cafetera. El sistema explicaría: “te la mostramos porque buscas bajo consumo y ya comparaste modelos compactos”. La persona podría cambiar filtros, consultar reseñas, quitar el producto o comprarlo; la IA recomienda, pero no confirma el pago por ella.",
+  "reflection": "Aprendí que una buena solución de IA para mercadotecnia no se mide solo por cuánto automatiza, sino por cuánto valor entrega sin quitarle claridad ni control al consumidor. Como futuro ingeniero, quiero construir sistemas que conviertan datos en decisiones útiles, explicables y seguras.",
+  "sources": [
+    {"id":1,"type":"FUENTE PRINCIPAL","title":"Mexicanos aceptan recomendaciones de IA para comprar, pero mantienen el control sobre sus decisiones: NIQ","author":"Santiago, J.","publisher":"El Economista","date":"5 de octubre de 2026","url":"https://www.eleconomista.com.mx/empresas/mexicanos-aceptan-recomendaciones-ia-comprar-mantienen-control-sobre-decisiones-niq-20261005-836929.html"},
+    {"id":2,"type":"FUENTE COMPLEMENTARIA","title":"Recommender Systems Handbook (2nd ed.)","author":"Ricci, F., Rokach, L., & Shapira, B. (eds.)","publisher":"Springer","date":"2015","url":"https://doi.org/10.1007/978-1-4899-7637-6"},
+    {"id":3,"type":"FUENTE COMPLEMENTARIA","title":"Marketing 5.0: Technology for Humanity","author":"Kotler, P., Kartajaya, H., & Setiawan, I.","publisher":"Wiley","date":"2021","url":"https://www.wiley.com/en-us/Marketing+5+0%3A+Technology+for+Humanity-p-9781119668510"}
+  ],
+  "consulted":"12 de noviembre de 2026",
+  "sourceNote":"Las cifras y afirmaciones periodísticas se atribuyen a la fuente principal; las relaciones académicas y la reflexión son análisis del autor."
+}
