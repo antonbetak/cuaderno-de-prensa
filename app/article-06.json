@@ -1,0 +1,32 @@
+{
+  "title": "Mercado Ads apuesta por datos para medir ventas",
+  "subtitle": "La publicidad digital busca dejar de medir únicamente exposición y clics para demostrar qué ocurre después: intención, compra y valor comercial.",
+  "summary": [
+    "La noticia de Patricia Ortega explica que Mercado Ads quiere cerrar la distancia entre la exposición de un anuncio y una venta verificable. Para ello combina datos propios del ecosistema de Mercado Libre, inteligencia artificial, información de búsqueda, navegación y compras, con el objetivo de identificar audiencias y evaluar si una campaña influyó en una transacción. [1]",
+    "El artículo señala que Mercado Ads amplió su presencia hacia streaming, televisión conectada, redes sociales y creadores de contenido. También menciona integraciones con TikTok, una red de más de siete millones de creadores activables y formatos de video shoppable. [1]",
+    "La idea central es pasar de vender únicamente espacios publicitarios a ofrecer capacidad de medición: conectar branding, consideración y conversión, y contrastar esos resultados con datos de compra. La nota también reporta que la compañía utiliza IA para agrupar búsquedas en intenciones de compra, construir segmentos y optimizar campañas. [1]"
+  ],
+  "importance": [
+    "La noticia importa porque los presupuestos publicitarios necesitan evidencia de resultados. Saber que una persona vio un anuncio o hizo clic describe una interacción, pero no basta para conocer si la campaña contribuyó a una compra. Vincular las acciones publicitarias con ventas permite comparar alternativas y asignar mejor el presupuesto.",
+    "También es relevante porque ayuda a comprender el comportamiento del consumidor en distintas etapas: descubrir una marca, considerar una opción y comprar. Una medición conectada puede mostrar dónde se pierde la conversión y permitir que una empresa ajuste su mensaje, audiencia o canal con mayor precisión.",
+    "El valor de los datos no elimina la responsabilidad. La medición debe distinguir entre una relación observada y una causalidad demostrada, respetar la privacidad y comunicar con claridad qué se mide. La confianza del consumidor es parte del resultado de una estrategia digital."
+  ],
+  "topics": [
+    {"title":"Investigación de mercados","text":"Los datos de búsqueda, navegación y compra funcionan como evidencia para formular preguntas sobre demanda, intención y respuesta a una campaña. La empresa puede observar patrones y contrastarlos con objetivos de mercado, siempre considerando la calidad y el contexto de la información."},
+    {"title":"Segmentación de clientes","text":"La IA puede ayudar a agrupar señales de comportamiento en segmentos con distintas intenciones de compra. Por ejemplo, una persona que compara productos no necesita necesariamente el mismo mensaje que quien ya visitó una ficha de producto."},
+    {"title":"Comportamiento del consumidor","text":"La noticia sigue el recorrido desde el descubrimiento hasta la conversión. Analizar ese recorrido permite entender cómo influyen los anuncios, el contenido de video, la confianza y la disponibilidad en la decisión final."},
+    {"title":"Mercadotecnia digital y publicidad","text":"La expansión a streaming, CTV, redes sociales y creadores muestra una estrategia multicanal. La publicidad debe coordinar alcance, consideración y conversión, y elegir formatos según el momento del consumidor."},
+    {"title":"Medición y retorno de inversión","text":"La atribución busca relacionar una campaña con resultados comerciales. Para una marca, comparar inversión, ventas atribuibles y otros indicadores ayuda a estimar el retorno, optimizar el presupuesto y evitar decisiones basadas únicamente en impresiones o clics."}
+  ],
+  "profession": [
+    "Como estudiante de Ingeniería en Sistemas Computacionales, observo que una estrategia de este tipo depende de sistemas capaces de recopilar, ordenar y consultar grandes volúmenes de información. El desarrollo de software integra interfaces, servicios y procesos que convierten eventos digitales en datos analizables.",
+    "Las bases de datos y los procesos de análisis permiten relacionar señales como búsquedas, visitas y compras. La inteligencia artificial puede apoyar la clasificación de intenciones o la formación de segmentos, pero sus resultados necesitan datos de calidad, evaluación y supervisión humana.",
+    "También son importantes las APIs para conectar plataformas y los dashboards para presentar indicadores como alcance, interacción, conversión y ventas. Una visualización clara ayuda a que el equipo de mercadotecnia tome decisiones; no sustituye la interpretación del contexto ni prueba por sí sola que un anuncio causó una compra.",
+    "Finalmente, la seguridad y la protección de datos son parte del diseño. Un ingeniero debe aplicar controles de acceso, minimización, trazabilidad y prácticas de privacidad para que la información utilizada en mercadotecnia se procese de manera responsable. La tecnología debe hacer posible medir mejor sin convertir a las personas en datos sin explicación."
+  ],
+  "sources": [
+    {"id":1,"type":"FUENTE PERIODÍSTICA","title":"Mercado Ads apuesta por datos para medir ventas","author":"Patricia Ortega","publisher":"El Economista","date":"2 de octubre de 2026","url":"https://www.eleconomista.com.mx/los-especiales/mercado-ads-apuesta-datos-medir-ventas-20261002-836459.html"}
+  ],
+  "consulted":"18 de noviembre de 2026",
+  "sourceNote":"Los datos periodísticos provienen de [1]. Las relaciones con mercadotecnia e ingeniería son interpretación académica propia; el diagrama es didáctico y no representa la arquitectura interna de Mercado Ads."
+}
