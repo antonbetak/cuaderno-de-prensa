@@ -1,3 +1,4 @@
+/* oxlint-disable next/no-html-link-for-pages -- This Vite app uses standard links. */
 import { useEffect, useMemo, useState } from 'react';
 import {
   ArrowDown,
@@ -89,9 +90,12 @@ const editions = {
 
 export type EditionNumber = keyof typeof editions | '03' | '04' | '05' | '06';
 
-function getEditionFromUrl(): EditionNumber {
-  if (typeof window === 'undefined') return '01';
+type View = EditionNumber | 'cover';
+
+function getEditionFromUrl(): View {
+  if (typeof window === 'undefined') return 'cover';
   const number = new URLSearchParams(window.location.search).get('noticia');
+  if (number === null) return 'cover';
   return number === '6' ? '06' : number === '5' ? '05' : number === '4' ? '04' : number === '3' ? '03' : number === '2' ? '02' : '01';
 }
 
@@ -112,11 +116,11 @@ function CitedText({ text }: { text: string }) {
 }
 
 export default function Home() {
-  const [editionNumber, setEditionNumber] = useState<EditionNumber>(getEditionFromUrl);
+  const [editionNumber, setEditionNumber] = useState<View>(getEditionFromUrl);
   const [active, setActive] = useState('noticia');
   const [progress, setProgress] = useState(0);
   const [open, setOpen] = useState<string[]>(['01']);
-  const edition = editions[editionNumber === '03' || editionNumber === '04' || editionNumber === '05' || editionNumber === '06' ? '01' : editionNumber];
+  const edition = editions[editionNumber === 'cover' || editionNumber === '03' || editionNumber === '04' || editionNumber === '05' || editionNumber === '06' ? '01' : editionNumber];
   const article = edition.data;
   const metadata = editionNumber === '06' ? articleSix : editionNumber === '05' ? articleFive : editionNumber === '04' ? articleFour : editionNumber === '03' ? articleThree : article;
 
@@ -151,16 +155,18 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    document.title = `${metadata.title} | Cuaderno de prensa`;
+    document.title = editionNumber === 'cover' ? 'Cuaderno de prensa | Mercadotecnia' : `${metadata.title} | Cuaderno de prensa`;
     const meta = document.querySelector<HTMLMetaElement>('meta[name="description"]');
     if (meta) meta.content = metadata.subtitle;
-  }, [metadata]);
+  }, [metadata, editionNumber]);
 
-  const chooseEdition = (event: React.MouseEvent<HTMLAnchorElement>, next: EditionNumber) => {
+  const chooseEdition = (event: React.MouseEvent<HTMLAnchorElement>, next: View) => {
+    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
     event.preventDefault();
     if (next === editionNumber) return;
     const url = new URL(window.location.href);
-    url.searchParams.set('noticia', String(Number(next)));
+    if (next === 'cover') url.searchParams.delete('noticia');
+    else url.searchParams.set('noticia', String(Number(next)));
     url.hash = '';
     window.history.pushState({}, '', url);
     setEditionNumber(next);
@@ -169,14 +175,17 @@ export default function Home() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  if (editionNumber === 'cover') return <Cover chooseEdition={chooseEdition} />;
+  const coverNav = <nav className="cover-return" aria-label="Inicio del cuaderno"><a href="./" onClick={event => chooseEdition(event, 'cover')}>← Portada</a><span>CUADERNO DE PRENSA / 6 DE 6 NOTICIAS</span></nav>;
   const notebookNav = <NotebookNav number={editionNumber} chooseEdition={chooseEdition} />;
-  if (editionNumber === '04') return <><ArticleFour links={editionLinks} chooseEdition={chooseEdition}/>{notebookNav}</>;
-  if (editionNumber === '05') return <><ArticleFive links={editionLinks} chooseEdition={chooseEdition}/>{notebookNav}</>;
-  if (editionNumber === '06') return <><ArticleSix links={editionLinks} chooseEdition={chooseEdition}/>{notebookNav}</>;
-  if (editionNumber === '03') return <><ArticleThree links={editionLinks} chooseEdition={chooseEdition}/>{notebookNav}</>;
+  if (editionNumber === '04') return <>{coverNav}<ArticleFour links={editionLinks} chooseEdition={chooseEdition}/>{notebookNav}</>;
+  if (editionNumber === '05') return <>{coverNav}<ArticleFive links={editionLinks} chooseEdition={chooseEdition}/>{notebookNav}</>;
+  if (editionNumber === '06') return <>{coverNav}<ArticleSix links={editionLinks} chooseEdition={chooseEdition}/>{notebookNav}</>;
+  if (editionNumber === '03') return <>{coverNav}<ArticleThree links={editionLinks} chooseEdition={chooseEdition}/>{notebookNav}</>;
 
   return (
     <div className={`edition edition-${editionNumber}`}>
+      {coverNav}
       <a href="#noticia" className="skip-link">Saltar al contenido</a>
       <div className="reading-progress" style={{ width: `${progress}%` }} aria-hidden="true" />
       <header className="site-header">
@@ -265,9 +274,9 @@ export default function Home() {
                 <span className="edition-big">{edition.number}<span>/06</span></span>
                 <p>{edition.number === '01' ? 'Primera' : 'Segunda'} entrada<br />Cuaderno de prensa</p>
                 <div className="edition-track" aria-hidden="true">
-                  {[1, 2, 3, 4, 5, 6].map((item) => <i key={item} className={item <= 4 ? 'complete' : ''} />)}
+                  {[1, 2, 3, 4, 5, 6].map((item) => <i key={item} className={item <= 6 ? 'complete' : ''} />)}
                 </div>
-                <span className="tiny">CUADERNO: 5 DE 6 NOTICIAS</span>
+                <span className="tiny">CUADERNO: 6 DE 6 NOTICIAS</span>
               </div>
             </div>
           </aside>
@@ -379,7 +388,23 @@ export default function Home() {
   );
 }
 
-function NotebookNav({number,chooseEdition}:{number:EditionNumber;chooseEdition:(e:React.MouseEvent<HTMLAnchorElement>,n:EditionNumber)=>void}) {
+function NotebookNav({number,chooseEdition}:{number:EditionNumber;chooseEdition:(e:React.MouseEvent<HTMLAnchorElement>,n:View)=>void}) {
  const numbers:EditionNumber[]=['01','02','03','04','05','06']; const i=numbers.indexOf(number);
- return <nav className="notebook-nav" aria-label="Progreso y navegación del cuaderno"><div><strong>Cuaderno de prensa · 6 de 6 noticias</strong><progress value="6" max="6" aria-label="6 de 6 noticias completadas"/></div><div>{i>0&&<a href={`?noticia=${i}`} onClick={e=>chooseEdition(e,numbers[i-1])}>← Noticia {numbers[i-1]}</a>}{i<5&&<a href={`?noticia=${i+2}`} onClick={e=>chooseEdition(e,numbers[i+1])}>Noticia {numbers[i+1]} →</a>}</div></nav>;
+ return <nav className="notebook-nav" aria-label="Progreso y navegación del cuaderno"><div><strong>Cuaderno de prensa · 6 de 6 noticias</strong><progress value="6" max="6" aria-label="6 de 6 noticias completadas"/></div><div>{i===0&&<a href="./" onClick={e=>chooseEdition(e,'cover')}>← Portada</a>}{i>0&&<a href={`?noticia=${i}`} onClick={e=>chooseEdition(e,numbers[i-1])}>← Noticia {numbers[i-1]}</a>}{i<5&&<a href={`?noticia=${i+2}`} onClick={e=>chooseEdition(e,numbers[i+1])}>Noticia {numbers[i+1]} →</a>}</div></nav>;
+}
+
+const completePdf = 'Cuaderno-de-Prensa-Anton-Betak-Licea-Otono-2026.pdf';
+
+function Cover({ chooseEdition }: { chooseEdition: (event: React.MouseEvent<HTMLAnchorElement>, next: View) => void }) {
+  return <div className="cover-page">
+    <header className="cover-header"><a href="./" className="cover-brand" aria-label="Cuaderno de prensa, portada">m<span>.</span></a><span>INGENIERÍA EN SISTEMAS<br />× MERCADOTECNIA</span><span className="cover-header-right">EDICIÓN ACADÉMICA<br />OTOÑO 2026</span></header>
+    <main id="portada" className="cover-main">
+      <div className="cover-topline"><span>UNA MIRADA AL PRESENTE</span><span>01 — 06 / COMPLETO</span></div>
+      <div className="cover-layout">
+        <div className="cover-copy"><p className="cover-kicker"><span /> TECNOLOGÍA · MERCADO · PERSONAS</p><h1>Cuaderno<br /><em>de prensa.</em></h1><p className="cover-deck">Ideas que conectan la innovación tecnológica con las decisiones, las marcas y las personas.</p><div className="cover-actions"><a href="?noticia=1" onClick={event => chooseEdition(event, '01')} className="cover-primary">Comenzar lectura <span aria-hidden="true">↗</span></a><a className="cover-secondary" href={`${import.meta.env.BASE_URL}${completePdf}`} download>Descargar cuaderno completo (PDF) <span aria-hidden="true">↓</span></a></div></div>
+        <div className="cover-visual" aria-hidden="true"><div className="cover-visual-label"><span>FIG. 01 / CONEXIONES</span><span>2026</span></div><svg viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="250" cy="250" r="184" stroke="#777B76" strokeWidth="1"/><circle cx="250" cy="250" r="135" stroke="#777B76" strokeWidth="1"/><circle cx="250" cy="250" r="84" stroke="#777B76" strokeWidth="1"/><path d="M35 250H465M250 35V465M98 98L402 402M402 98L98 402" stroke="#777B76" strokeWidth="1"/><path d="M66 250C122 129 195 88 250 115C310 144 362 309 434 250" stroke="#CEFC72" strokeWidth="3"/><path d="M97 365C165 354 183 199 250 198C313 197 338 118 403 136" stroke="#F48972" strokeWidth="3"/><circle cx="250" cy="250" r="27" fill="#CEFC72"/><circle cx="250" cy="250" r="8" fill="#15191A"/><circle cx="115" cy="250" r="6" fill="#F48972"/><circle cx="347" cy="153" r="6" fill="#CEFC72"/><circle cx="403" cy="136" r="5" fill="#F48972"/><circle cx="180" cy="318" r="5" fill="#CEFC72"/></svg><div className="cover-visual-caption"><span>SISTEMAS<br />EN MOVIMIENTO</span><span>ANÁLISIS / REFLEXIÓN<br />6 NOTICIAS</span></div></div>
+      </div>
+      <div className="cover-details"><div><span>AUTOR</span><strong>Anton Betak Licea</strong></div><div><span>CARRERA</span><strong>Ingeniería en Sistemas Computacionales</strong></div><div><span>MATERIA</span><strong>Mercadotecnia</strong></div><div><span>PERIODO</span><strong>Otoño 2026</strong></div></div>
+    </main><footer className="cover-footer"><span>CUADERNO DE PRENSA / EDICIÓN ACADÉMICA</span><span>6 DE 6 NOTICIAS COMPLETAS <b>●</b></span></footer>
+  </div>;
 }
