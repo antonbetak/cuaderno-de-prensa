@@ -76,3 +76,15 @@
 @media(prefers-reduced-motion:reduce){.cover-copy,.cover-visual{animation:none}.cover-primary,.cover-secondary{transition:none}.cover-primary:hover{transform:none}}
 /* Evita que el contenido de la sexta entrada ensanche pantallas pequeñas. */
 .ads-grid>div{min-width:0}.ads-orbit{flex-wrap:wrap}
+
+/* Un mismo tamaño y ritmo para la navegación de las seis noticias. */
+@media (min-width: 1301px) {
+  .edition .site-header nav { gap: 20px; font-size: 14px; }
+  .site-header nav a { white-space: nowrap; }
+}
+@media (min-width: 761px) and (max-width: 1300px) {
+  .site-header nav { display: none; }
+  .mobile-edition-nav { display: flex; flex-wrap: wrap; background: var(--paper); border-bottom: 1px solid var(--line); padding: 0 5.2%; }
+  .mobile-edition-nav a { flex: 1; min-width: 16%; padding: 13px 4px; text-align: center; font-size: 12px; color: #74747c; border-bottom: 2px solid transparent; }
+  .mobile-edition-nav a[aria-current="page"] { font-weight: 700; color: var(--ink); border-bottom-color: currentColor; }
+}

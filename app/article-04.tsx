@@ -1,5 +1,5 @@
 /* oxlint-disable next/no-img-element, next/no-html-link-for-pages -- Vite serves the original local vector illustration. */
-import { ArrowDown, Download } from 'lucide-react';
+import { ArrowDown, ArrowUpRight, Download } from 'lucide-react';
 import article from './article-04.json';
 import type { EditionNumber } from './page';
 const pdf = `${import.meta.env.BASE_URL}noticia-04-forbes-gemelos-digitales.pdf`;
@@ -13,7 +13,7 @@ export default function ArticleFour({ links, chooseEdition }: {
   const nav = links.map(l => <a key={l.number} href={l.href} onClick={e => chooseEdition(e,l.number)} aria-current={l.number === '04' ? 'page' : undefined}>{l.label}</a>);
   return <div className="edition edition-04">
     <a href="#noticia" className="skip-link">Saltar al contenido</a>
-    <header className="site-header"><a href="?noticia=1" onClick={e=>chooseEdition(e,'01')} className="brand"><span className="brand-symbol">m<span>.</span></span><span>CUADERNO<br/>DE PRENSA</span></a><nav aria-label="Navegación principal">{nav}</nav><a className="download-link" href={pdf} download><Download size={16}/><span>Descargar PDF</span></a></header>
+    <header className="site-header"><a href="?noticia=1" onClick={e=>chooseEdition(e,'01')} className="brand"><span className="brand-symbol">m<span>.</span></span><span>CUADERNO<br/>DE PRENSA</span></a><nav aria-label="Navegación principal">{nav}<a href="#fuentes">Fuentes <ArrowUpRight size={14}/></a></nav><a className="download-link" href={pdf} download><Download size={16}/><span>Descargar PDF</span></a></header>
     <nav className="mobile-edition-nav" aria-label="Cambiar noticia">{nav}</nav>
     <main id="inicio">
       <section className="twins-cover"><div className="twins-kicker"><span>NOTICIA 04 · REVISTA 02/02 · FORBES</span><span>14 OCT 2026 / CMO</span></div><div className="twins-grid"><div><p className="eyebrow">INVESTIGACIÓN / INTELIGENCIA ARTIFICIAL</p><h1>Cómo los gemelos digitales están reinventando la <em>investigación de clientes.</em></h1><p className="twins-deck">{article.subtitle}</p><p className="twins-byline">Análisis: Anton Betak Licea<br/>Ingeniería en Sistemas Computacionales · Mercadotecnia Básica<br/>19 de octubre de 2026</p><a className="hero-cta" href="#noticia">Explorar el análisis <ArrowDown size={17}/></a></div><figure><img src={`${import.meta.env.BASE_URL}assets/digital-twins.svg`} width="900" height="720" alt="Una persona y su representación en una malla digital conectadas por datos"/><figcaption>Ilustración vectorial original del cuaderno. No representa una interfaz de Outset.</figcaption></figure></div></section>
